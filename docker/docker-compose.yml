@@ -1,0 +1,28 @@
+version: '2.3'
+services:
+  rgbdslam:
+    image: yubaoliu/rgbdslam:latest
+    build:
+        context: .
+    container_name: rgbdslam
+    stdin_open: true
+    tty: true
+    command:
+        - roscore
+        # - bash
+    runtime: nvidia
+    environment:
+        - DISPLAY
+        - QT_X11_NO_MITSHM=1
+        - ROS_HOSTNAME=rgbdslam
+        - ROS_MASTER_URI=http://rgbdslam:11311
+    volumes:
+        - /tmp/.X11-unix:/tmp/.X11-unix:rw
+        - ..:/root/catkin_ws/src/rgbdslamv2
+        - ${DATASET_DIR}:/root/Dataset
+        # - rgbdslam:/root
+    cap_add:
+        - SYS_PTRACE
+    privileged: true
+# volumes:
+    # rgbdslam:

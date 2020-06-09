@@ -1,0 +1,42 @@
+FROM yubaoliu/root:ros-cuda10.2-cudnn7-ubuntu16
+
+RUN echo \
+    && echo "Removing packages known to conflict (password required for apt-get)"  \
+    && apt-get purge  -y ros-kinetic-libg2o libqglviewer-dev \
+    && rosdep update
+
+RUN echo "Install dependences for g2o" \
+    && sudo apt-get install  -y libsuitesparse-dev libeigen3-dev
+
+RUN  git clone -b c++03 https://github.com/felixendres/g2o.git /root/g2ofork \
+    && cd /root/g2ofork \
+    && mkdir build \
+    && cd build \
+    && cmake .. -DCMAKE_INSTALL_PREFIX=../install -DG2O_BUILD_EXAMPLES=OFF \
+    && nice make -j2 install
+
+ENV G2O_DIR /root/g2ofork/install
+
+#COPY ./install.sh /root/
+#RUN bash -c "/root/install.sh"
+
+COPY ./entrypoint.sh /
+RUN chmod 777 /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["bash"]
+
+WORKDIR /root/catkin_ws/src
+
+# # Install dependencies
+# # Newer CUDA was installed in base image, so rosdep keys of CUDA are skipped
+# RUN /bin/bash -c "source /opt/ros/kinetic/setup.bash && \
+#                   rosdep install --from-paths src -r -y --skip-keys=\"nvidia-cuda-dev nvidia-cuda\""
+#                   
+# # Build
+# RUN /bin/bash -c "source /opt/ros/kinetic/setup.bash && \
+#                   catkin_make -DCMAKE_BUILD_TYPE=Release"
+# 
+# # Load ROS environment at each run
+
+
