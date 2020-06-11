@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classBagLoader.html" title="Handles most of the ROS&#45;based communication. " alt="" coords="139,5,223,32"/>
+<area shape="rect" id="node3" href="$classGraphManager.html" title="Computes a globally optimal trajectory from transformations between Node&#45;pairs. " alt="" coords="127,56,234,83"/>
+<area shape="rect" id="node4" href="$classOpenNIListener.html" title="Handles most of the ROS&#45;based communication. " alt="" coords="124,107,237,133"/>
+<area shape="rect" id="node5" href="$classRosUi.html" title="Headless version of the Graphical_UI. " alt="" coords="151,157,210,184"/>
+</map>
