@@ -1,0 +1,6 @@
+<map id="OpenNIListener::kinectCallback" name="OpenNIListener::kinectCallback">
+<area shape="rect" id="node2" href="$classParameterServer.html#a5457f900e543c5a466bf9b65ee6bc577" title="ParameterServer::instance" alt="" coords="279,5,456,32"/>
+<area shape="rect" id="node3" href="$classParameterServer.html#a3c8af50664e423b555bbb1874f488413" title="ParameterServer::get" alt="" coords="294,56,441,83"/>
+<area shape="rect" id="node4" href="$classOpenNIListener.html#afff24147ee90db62471f29d702b3f349" title="Create a QImage from image. The QImage stores its data in the rgba_buffers_ indexed by idx (reused/ov..." alt="" coords="262,107,473,133"/>
+<area shape="rect" id="node5" href="$classOpenNIListener.html#a6ba7df144ba4cc5b1883117cdafe1db7" title="common processing " alt="" coords="260,157,475,184"/>
+</map>

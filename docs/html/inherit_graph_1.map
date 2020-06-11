@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classBagSubscriber.html" title="BagSubscriber\&lt; M \&gt;" alt="" coords="5,78,148,105"/>
+<area shape="rect" id="node2" href="$classBagSubscriber.html" title="BagSubscriber\&lt; sensor\l_msgs::CameraInfo \&gt;" alt="" coords="196,5,355,47"/>
+<area shape="rect" id="node3" href="$classBagSubscriber.html" title="BagSubscriber\&lt; sensor\l_msgs::Image \&gt;" alt="" coords="196,71,355,112"/>
+<area shape="rect" id="node4" href="$classBagSubscriber.html" title="BagSubscriber\&lt; sensor\l_msgs::PointCloud2 \&gt;" alt="" coords="196,136,355,177"/>
+</map>
