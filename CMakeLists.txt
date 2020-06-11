@@ -31,7 +31,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #For annotated profiling with perf: 
 #SET(CMAKE_CXX_FLAGS "-ggdb -O3 -fPIC -std=c++0x")
 #SET(CMAKE_CXX_FLAGS "-ggdb -O3 -fPIC")
-SET(CMAKE_BUILD_TYPE RELEASE)
+# SET(CMAKE_BUILD_TYPE RELEASE)
+SET(CMAKE_BUILD_TYPE DEBUG)
 add_compile_options(-std=c++11)
 IF (${USE_GL2PS})
   add_definitions(-DGL2PS)
@@ -76,7 +77,8 @@ link_directories(${catkin_LIBRARY_DIRS})
 # Required 3rd party
 ####################################################
 # PCL #######################
-find_package(PCL 1.7 REQUIRED COMPONENTS common io)
+# find_package(PCL 1.7 REQUIRED COMPONENTS common io)
+find_package(PCL 1.8 REQUIRED COMPONENTS common io)
 include_directories(SYSTEM ${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
@@ -240,7 +242,12 @@ include_directories(SYSTEM external/ /usr/include/suitesparse/)
 ##############################################################################
 # Binaries
 ##############################################################################
-add_executable(rgbdslam ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP} ${ADDITIONAL_SOURCES})
+add_executable(rgbdslam 
+    ${QT_SOURCES} 
+    ${QT_RESOURCES_CPP}
+    ${QT_FORMS_HPP}
+    ${QT_MOC_HPP}
+    ${ADDITIONAL_SOURCES})
 add_dependencies(rgbdslam rgbdslam_gencpp)
 
 
@@ -269,16 +276,6 @@ IF (${USE_GICP})
   set(ROS_COMPILE_FLAGS ${ROS_COMPILE_FLAGS} -fpermissive)
   add_library(gicp external/gicp/bfgs_funcs.cpp external/gicp/gicp.cpp external/gicp/optimize.cpp external/gicp/scan.cpp external/gicp/transform.cpp)
 ENDIF (${USE_GICP})
-
-
-
-
-
-
-
-
-
-
 
 
 ###############################################################################

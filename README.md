@@ -1,3 +1,25 @@
+# How to use Docer
+
+- Build Docker image
+
+```sh
+cd docker
+docker-compose build
+```
+
+- Start Docker
+
+```sh
+docker-compose up
+or 
+docker-compose up --force-recreate
+```
+- Start a standalone terminal
+
+```sh
+docker-compose exec rgbdslam bash
+```
+
 # RGBDSLAM<i>v2</i> 
 ... is a state-of-the-art SLAM system for RGB-D cameras, e.g., the Microsoft
 Kinect or the Asus Xtion Pro Live.  You can use it to create 3D point clouds or

@@ -7,6 +7,11 @@ FROM nvidia/cudagl:${cuda_version}-devel-ubuntu${ubuntu_version}
 #FROM osrf/ros:kinetic-desktop-full
 #FROM yubaoliu/root:ros-cuda10.2-cudnn7-ubuntu16
 
+
+RUN apt update \
+    && apt install -y gdb wget locate cython \
+    && rm -rf /var/lib/apt/lists/*
+
 ################################################################################
 
 # Install the Nvidia cuDNN library missing in the parent image.
@@ -44,6 +49,20 @@ RUN bash -c "source /opt/ros/kinetic/setup.bash" \
     && rosdep init \
     && rosdep update
 
+ENV LD_LIBRARY_PATH /opt/ros/kinetic/lib:$LD_LIBRARY_PATH
+
+# Install PCL 1.8
+RUN cd /root/ \
+    && wget -c  https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz \
+    && tar zxvf pcl-1.8.0.tar.gz \
+    && cd pcl-pcl-1.8.0 \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make -j2 \
+    && make install \
+    && rm -rf pcl-1.8.0.tar.gz pcl-pcl-1.8.0
+
 RUN echo "Install dependences for g2o" \
     && apt-get update \
     && apt-get install  -y libsuitesparse-dev libeigen3-dev \
@@ -60,6 +79,10 @@ ENV G2O_DIR /root/g2ofork/install
 
 #COPY ./install.sh /root/
 #RUN bash -c "/root/install.sh"
+
+RUN apt update \
+    && apt install -y gdb \
+    && apt-get install -y ros-kinetic-openni-launch cython locate wget
 
 ### Create catkin workspace ###
 RUN mkdir -p /root/catkin_ws/src

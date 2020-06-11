@@ -7,15 +7,18 @@ services:
     container_name: rgbdslam
     stdin_open: true
     tty: true
+    network_mode: "host"
     command:
         - roscore
         # - bash
     runtime: nvidia
+    entrypoint:
+        - /entrypoint.sh
     environment:
         - DISPLAY
         - QT_X11_NO_MITSHM=1
-        - ROS_HOSTNAME=rgbdslam
-        - ROS_MASTER_URI=http://rgbdslam:11311
+        # - ROS_HOSTNAME=rgbdslam
+        # - ROS_MASTER_URI=http://rgbdslam:11311
     volumes:
         - /tmp/.X11-unix:/tmp/.X11-unix:rw
         - ..:/root/catkin_ws/src/rgbdslamv2
@@ -23,6 +26,6 @@ services:
         # - rgbdslam:/root
     cap_add:
         - SYS_PTRACE
-    privileged: true
+    # privileged: true
 # volumes:
     # rgbdslam:

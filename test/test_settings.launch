@@ -12,7 +12,8 @@
   <arg unless="$(arg debug)" name="launch_prefix" value=""/>
 
   <!-- These parameters are defined in the calling script (run_tests.sh)-->
-  <arg name="bagfile_name" />
+  <!--<arg name="bagfile_name" default="/root/Dataset/TUM/freiburg1/rgbd_dataset_freiburg1_room.bag" /> -->
+  <arg name="bagfile_name" default="" />
   <arg name="feature_type" default="ORB"/>
   <arg name="ransac_iterations" default="100"/>
   <arg name="optimizer_skip_step" default="10"/>
