@@ -120,7 +120,7 @@ Node::Node(const cv::Mat& visual,
     ScopedTimer s("Node Constructor");
     ParameterServer* ps = ParameterServer::instance();
 
-    //Create point cloud inf necessary
+    //Create point cloud if necessary
     if (ps->get<bool>("store_pointclouds") || ps->get<int>("emm__skip_step") > 0 || ps->get<bool>("use_icp") || (ps->get<bool>("use_glwidget") && ps->get<bool>("use_gui") && !ps->get<bool>("glwidget_without_clouds"))) {
         pc_col = pointcloud_type::Ptr(createXYZRGBPointCloud(depth, visual, cam_info));
     } else //Else use empty one
