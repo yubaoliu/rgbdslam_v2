@@ -67,21 +67,21 @@ $(function() {
 Code API</h1>
 <p>The main classes are the following: </p><ul>
 <li>
-Node - Holds the data for a graph node, e.g., the extracted features and their position in the image plane and the local 3D coordinate systems. It provides functionality to find the transformation to another node and for publishing the associated pointcloud. </li>
+<a class="el" href="classNode.html" title="Holds the data for one graph node and provides functionality to compute relative transformations to o...">Node</a> - Holds the data for a graph node, e.g., the extracted features and their position in the image plane and the local 3D coordinate systems. It provides functionality to find the transformation to another node and for publishing the associated pointcloud. </li>
 <li>
-GraphManager - Decides for each Node, which edges are included in the graph. Stores all Nodes with valid edges and optimizes the camera pose graph globally (or locally) with g2o as SLAM backend. Provides functionality to send (ROS-Msgs) or save (to PCD File) the globally consistent whole model. </li>
+<a class="el" href="classGraphManager.html" title="Computes a globally optimal trajectory from transformations between Node-pairs. ">GraphManager</a> - Decides for each <a class="el" href="classNode.html" title="Holds the data for one graph node and provides functionality to compute relative transformations to o...">Node</a>, which edges are included in the graph. Stores all Nodes with valid edges and optimizes the camera pose graph globally (or locally) with g2o as SLAM backend. Provides functionality to send (ROS-Msgs) or save (to PCD File) the globally consistent whole model. </li>
 </ul>
 <p>The following classes are mainly for communication with ROS and the user: </p><ul>
 <li>
-OpenNIListener - Subscribes to the openni topics, constructs a node for each image-pointcloud pair and hands it to the graph manager. Online visualization results are sent out. </li>
+<a class="el" href="classOpenNIListener.html" title="Handles most of the ROS-based communication. ">OpenNIListener</a> - Subscribes to the openni topics, constructs a node for each image-pointcloud pair and hands it to the graph manager. Online visualization results are sent out. </li>
 <li>
-Graphical_UI - Constructs a QT GUI for easy control of the program </li>
+<a class="el" href="classGraphical__UI.html" title="Constructs a QT GUI for easy control of RGBD-SLAM. ">Graphical_UI</a> - Constructs a QT GUI for easy control of the program </li>
 <li>
-RosUi - a UI for controlling the program via ROS service calls </li>
+<a class="el" href="classRosUi.html" title="Headless version of the Graphical_UI. ">RosUi</a> - a UI for controlling the program via ROS service calls </li>
 <li>
-QtROS - Sets up a thread for ROS event processing, to seperate SLAM-computations from the GUI </li>
+<a class="el" href="classQtROS.html" title="Sets up a thread for ROS event processing. ">QtROS</a> - Sets up a thread for ROS event processing, to seperate SLAM-computations from the GUI </li>
 <li>
-GLViewer - OpenGL based display of the 3d model </li>
+<a class="el" href="classGLViewer.html" title="OpenGL based display of the 3d model. ">GLViewer</a> - OpenGL based display of the 3d model </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
